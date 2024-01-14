@@ -5,7 +5,7 @@ const imageSchema = new mongoose.Schema({
     cuisine: String,
     ingredients: [String],
     servingTemperature: String,
-    imageUrl: String,
+    cloudinaryId: String,
     createdAt: { type: Date, default: Date.now },
 
     owner: {
@@ -16,4 +16,4 @@ const imageSchema = new mongoose.Schema({
 
 const Image = mongoose.model('Image', imageSchema);
 
-module.exports = Image;
+export default Image;
