@@ -15,7 +15,7 @@ server.use(errorHandler)
 
 
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 2000;
 
 
 connectDB().then(()=>{
