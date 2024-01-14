@@ -5,7 +5,7 @@ const imageSchema = new mongoose.Schema({
     cuisine: String,
     ingredients: [String],
     servingTemperature: String,
-    cloudinaryId: String,
+    imageUrl: String,
     createdAt: { type: Date, default: Date.now },
 
     owner: {

@@ -1,8 +1,8 @@
 // multer.js
 
 import multer from 'multer';
-import { CloudinaryStorage } from 'multer-storage-cloudinary';  // Make sure this import is correct
-import cloudinary from 'cloudinary';
+import { CloudinaryStorage } from 'multer-storage-cloudinary';  
+import {v2 as cloudinary} from 'cloudinary';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -15,12 +15,17 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
     cloudinary: cloudinary,
     params: {
-        folder: 'uploads',
+        folder: 'samples',
         format: async (req, file) => 'png',
-        public_id: (req, file) => 'app-' + file.originalname.replace(/\./g, '-'),
+        public_id: (req, file) => new Date().toISOString(),
+        // 'app-' + file.originalname.replace(/\./g, '-')
     },
 });
 
 const upload = multer({ storage: storage });
 
+
+
+
 export default upload;
+ 
