@@ -3,6 +3,7 @@ import dotenv from "dotenv"
 import cors from "cors"
 import connectDB from "./config/db.js"
 import { errorHandler } from "./middleware/errorHandling.js";
+import userRoutes from "./routes/userRoutes.js";
 
 const server=express();
 dotenv.config()
@@ -13,6 +14,7 @@ server.use(express.json());
 server.use(errorHandler)
 
 
+server.use("/api/v1/foodcama/users", userRoutes);
 
 
 const PORT = process.env.PORT || 2000;
