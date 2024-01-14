@@ -17,8 +17,8 @@ server.use(errorHandler)
 
 // routes 
 server.use("/api/v1/foodcoma",imagerouter);
-
 server.use("/api/v1/foodcama/users", userRoutes);
+
 
 
 const PORT = process.env.PORT || 2000;
