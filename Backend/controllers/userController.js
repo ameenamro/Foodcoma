@@ -14,14 +14,22 @@ export const getAllUsers = async (req, res, next) => {
 };
 
 // Controller to get a user by id
-export const getUserById = async (req, res, next) => {
+export const getUser = async (req, res, next) => {
   try {
-    const user = await User.findById(req.params.id);
-    if(!user){
-        res.status(404)
-        throw new Error("No such user in the database")
+    const { email, password }= req.body
+    const user = await User.findOne({ email, password })
+    if (!user) {
+      res.status(401).json({
+        message: "Login not successful",
+        error: "User not found",
+      })
     }
-    res.send(user);
+    else {
+        res.status(200).json({
+          message: "Login successful",
+          user,
+        })
+      }
   } catch (error) {
     next(error);
   }
@@ -34,9 +42,9 @@ export const createUser = async (req, res, next) => {
       const { name, email, age, gender, password } = req.body;
       const salt = await bcrypt.genSalt(10);
         // Hash the password with the generated salt
-      const hashedPassword = await bcrypt.hash(password, salt);
+    //   const hashedPassword = await bcrypt.hash(password, salt);
     //    Replace the plain password with the hashed one
-      const newUser = await User.create({ name, email, age, gender,hashedPassword });
+      const newUser = await User.create({ name, email, age, gender, password });
       res.status(201).send(newUser);
     } catch (error) {
       next(error);
