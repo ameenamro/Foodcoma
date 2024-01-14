@@ -16,6 +16,7 @@ const uploadImage = async (req, res) => {
             imageUrl:path,
         })
         // CALL OPEN API HERE RETURN THE IMAGE URL
+        
         res.status(200).json({
             success: true,
             message: 'Image uploaded successfully',
