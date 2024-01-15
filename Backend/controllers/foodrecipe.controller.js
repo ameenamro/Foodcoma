@@ -1,6 +1,5 @@
 import { config } from 'dotenv';
 import FoodRecipe from '../models/foodrecipe.schema.js';
-import { generateRecipeWithChatGPT } from '../utils/openai.js';
 
 config();
 
