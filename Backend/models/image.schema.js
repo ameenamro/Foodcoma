@@ -7,8 +7,13 @@ const imageSchema = new mongoose.Schema({
     servingTemperature: String,
     imageUrl: String,
     createdAt: { type: Date, default: Date.now },
+
+    owner: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
+      }
 });
 
 const Image = mongoose.model('Image', imageSchema);
 
-module.exports = Image;
+export default Image;
