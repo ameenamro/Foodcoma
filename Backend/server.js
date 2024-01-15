@@ -20,7 +20,7 @@ server.use("/api/v1/foodcoma",imagerouter);
 server.use("/api/v1/foodcama/users", userRoutes);
 
 
-const PORT = process.env.PORT || 2000;
+const PORT = process.env.PORT || 4000;
 
 connectDB().then(()=>{
 server.listen(PORT, () => {

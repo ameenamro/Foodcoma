@@ -10,8 +10,6 @@ export const analyzeImage = async (req, res) => {
     try {
         const image = req.file.path 
         const userQuestion = req.body.question  || "Can you help me identify this food?"
-        
-      
 
         const openai = getOpenAiInstance();
         console.log('openai:', openai);
