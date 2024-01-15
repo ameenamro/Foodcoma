@@ -4,6 +4,7 @@ import cors from "cors"
 import connectDB from "./config/db.js"
 import { errorHandler } from "./middleware/errorHandling.js";
 import imagerouter from "./routes/image.routes.js";
+import foodreciperouter from "./routes/foodrecipe.routes.js"
 
 import userRoutes from "./routes/userRoutes.js";
 
@@ -18,6 +19,7 @@ server.use(errorHandler)
 // routes 
 server.use("/api/v1/foodcoma",imagerouter);
 server.use("/api/v1/foodcama/users", userRoutes);
+server.use("/api/v1/foodcama",foodreciperouter);
 
 
 
