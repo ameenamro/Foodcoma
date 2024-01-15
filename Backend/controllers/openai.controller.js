@@ -2,7 +2,7 @@ import { OpenAI, toFile } from "openai";
 import getOpenAiInstance from "../utils/openai.js";
 import fs from "fs";
 
-export const analyzeImage = async (req, res) => {
+export const analyzeImage = async (req, res,next) => {
     
     try {
         const image = req.file.path 
@@ -30,5 +30,7 @@ export const analyzeImage = async (req, res) => {
         });
             console.log(response.choices[0].message.content);
         res.json(response.choices[0].message.content);
-    } catch (e) { }
+    } catch (e) { 
+        next(e)
+    }
 };
