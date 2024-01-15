@@ -8,11 +8,9 @@ export const analyzeImage = async (req, res) => {
         const image = req.file.path 
         const userQuestion = req.body.question  || "Can you help me identify this food?"
         
-      
-
         const openai = getOpenAiInstance();
         console.log('openai:', openai);
-   
+
         const response = await openai.chat.completions.create({
             model: "gpt-4-vision-preview",
             max_tokens: 250,
@@ -28,9 +26,9 @@ export const analyzeImage = async (req, res) => {
                     ],
                 },
             ],
-            s
+            
         });
-            console.log(response.choices[0].message.content);
+            console.log(response);
         res.json(response.choices[0].message.content);
     } catch (e) { }
 };

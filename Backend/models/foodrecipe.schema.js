@@ -12,4 +12,4 @@ const foodRecipeSchema = new mongoose.Schema({
 
 const FoodRecipe = mongoose.model('FoodRecipe', foodRecipeSchema);
 
-module.exports = FoodRecipe;
+export default FoodRecipe;
