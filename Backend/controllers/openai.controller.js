@@ -26,7 +26,7 @@ export const analyzeImage = async (req, res) => {
                     ],
                 },
             ],
-            s
+            
         });
             console.log(response.choices[0].message.content);
         res.json(response.choices[0].message.content);
