@@ -97,5 +97,38 @@
 }
 
 #chosen-img {
-  width: 90px;
+  width: 250px;
+}
+
+.result-container {
+  width: 500px;
+  border: solid 2px #0086fe;
+  border-radius: 10px;
+  box-shadow: 0 0 5px #007ae4;
+  background-color: #e6e6e6;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.spinner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.show {
+  display: block !important;
+  width: 200px;
+}
+
+.question-input {
+  width: 400px;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.question-label {
+  color: #0086fe;
+  font-weight: 600;
 }
