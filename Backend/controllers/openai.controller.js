@@ -2,9 +2,6 @@ import { OpenAI, toFile } from "openai";
 import getOpenAiInstance from "../utils/openai.js";
 import fs from "fs";
 
-
-
-
 export const analyzeImage = async (req, res) => {
     
     try {
@@ -18,6 +15,7 @@ export const analyzeImage = async (req, res) => {
             model: "gpt-4-vision-preview",
             max_tokens: 250,
             temperature: 1.5,
+            
             messages: [
                 { "role": "system", "content": "You are a professional chef with expertise in identifying cuisines. Your goal is to analyze the provided food image and determine its cuisine, color, recipe, and country of origin." },
                 {
@@ -28,6 +26,7 @@ export const analyzeImage = async (req, res) => {
                     ],
                 },
             ],
+            s
         });
             console.log(response.choices[0].message.content);
         res.json(response.choices[0].message.content);
