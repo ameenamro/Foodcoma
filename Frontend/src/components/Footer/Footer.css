@@ -1,4 +1,7 @@
 footer {
   width: 100%;
-  background: #0086fe;
+  background: #fe4c00;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
